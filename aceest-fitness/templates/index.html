@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ACEest Fitness & Gym</title>
+</head>
+<body>
+    <h1>Workout Tracker</h1>
+
+    <form method="POST" action="/add">
+        <label>Workout:</label>
+        <input type="text" name="workout" required>
+        <label>Duration (minutes):</label>
+        <input type="number" name="duration" required>
+        <button type="submit">Add Workout</button>
+    </form>
+
+    <h2>Logged Workouts:</h2>
+    <ul>
+        {% for w in workouts %}
+            <li>{{ w.workout }} - {{ w.duration }} minutes</li>
+        {% else %}
+            <li>No workouts logged yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
