@@ -10,7 +10,7 @@ def client():
 
 def test_health(client):
     r = client.get("/health")
-    assert r.status_code == 400
+    assert r.status_code == 200
     assert r.get_json()["status"] == "ok"
 
 def test_home_page_loads(client):
@@ -23,4 +23,5 @@ def test_add_workout(client):
     assert r.status_code == 200
     assert b"Push-ups" in r.data
     assert b"30" in r.data
+
 
